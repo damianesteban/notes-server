@@ -3,7 +3,9 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
-const router = require('./router.js');
+const notesRouter = require('./routes/notesRouter.js');
+const tokenVerifier = require("./auth/tokenVerifier");
+const authRouter = require('./routes/authRouter');
 const app = express();
 
 // Environment variables
@@ -27,7 +29,8 @@ mongoose.connection.on('connected', function () {
 });
 
 let port = process.env.PORT;
- app.use(router);
+app.use('/', authRouter);
+app.use('/', tokenVerifier, notesRouter);
 
 // Express application will listen to port in the env file
 app.listen(port, function(err){
