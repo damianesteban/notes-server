@@ -28,7 +28,7 @@ mongoose.connection.on('connected', function () {
   console.log(`Mongoose default connection open to ${mongoConfig}`);
 });
 
-let port = process.env.PORT;
+let port = process.env.PORT || 5000;
 app.use('/', authRouter);
 app.use('/', tokenVerifier, notesRouter);
 
