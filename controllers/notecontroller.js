@@ -5,7 +5,7 @@ const Note = require('../models/note');
         GetNote: function(req, res){
             Note.find({}, function(err, notes){
               if(err) {
-                res.json({result: {success: false, error: "Something went wrong"}});
+                res.json({success: false, error: "Something went wrong"});
                 return;
               }
               res.status(200).json({success: true, result: notes});
@@ -19,7 +19,7 @@ const Note = require('../models/note');
                 res.json({success: false, error: "Something went wrong"});
                 return;
               }
-              res.status(201).json({result: {success: true}});
+              res.status(201).json({success: true});
             });
         },
         //Updating a Note status based on an ID
@@ -31,7 +31,7 @@ const Note = require('../models/note');
               if(err) {
                 res.json({success: false, error: "Status not updated"});
               }
-              res.status(204).json({result: {success: true}});
+              res.status(204).json({success: true});
               });
             });
         },
@@ -42,7 +42,7 @@ const Note = require('../models/note');
               res.json({success: false, error: "Deleting Note is not successfull"});
               return;
             }
-            res.status(204).json({result:{success: true}});
+            res.status(204).json({success: true});
           });
         }
     }
