@@ -31,7 +31,7 @@ const Note = require('../models/note');
               if(err) {
                 res.json({success: false, error: "Status not updated"});
               }
-              res.status(204).json({success: true});
+              res.json({success: true});
               });
             });
         },
@@ -42,7 +42,7 @@ const Note = require('../models/note');
               res.json({success: false, error: "Deleting Note is not successfull"});
               return;
             }
-            res.status(204).json({success: true});
+            res.json({success: true});
           });
         }
     }
