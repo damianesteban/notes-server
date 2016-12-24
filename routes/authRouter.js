@@ -8,7 +8,7 @@ authRouter.post("/authorization", (req, res) => {
     let token = jwt.sign(user, "super_secret_key", {
       expiresIn: 60 
     });
-    res.status(200).send({ username: user.username, token: token });
+    res.status(200).send({ success: true, token: token });
   } else {
     res.status(401).send({ message: 'Authentication failed.' });
   }
